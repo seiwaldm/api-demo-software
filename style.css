@@ -1,0 +1,33 @@
+* {
+  /* margin: 0;
+  padding: 0; */
+  box-sizing: border-box;
+}
+
+.post {
+  border: 1px solid #444;
+  border-radius: 5px;
+  padding: 0 20px;
+  margin: 20px;
+}
+
+.post:nth-child(odd) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post:nth-child(even) {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post img {
+  margin: 0 10px;
+}
+
+.user-profile p {
+  text-align: center;
+}

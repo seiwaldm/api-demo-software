@@ -15,9 +15,10 @@ function getRandomPost() {
     .then(function(response) {
       return response.json();
     })
-    //kurze version
+    //kurze version (arrow-function)
     .then(post => {
       console.log(post);
+
       //erschaffe ein neues element vom Typ <div>
       const element = document.createElement("div");
       //schreibe html-code in das div.element
@@ -26,7 +27,7 @@ function getRandomPost() {
        <p>${post.body}</p>
        `;
       //hänge das neue element unten am body an
-      document.querySelector("body").appendChild(element);
+      document.querySelector(".container").appendChild(element);
     });
 }
 
@@ -37,13 +38,27 @@ async function getRandomPostAsync() {
   );
   const post = await response.json();
   console.log(post);
+
+  const userResponse = await fetch(
+    `https://jsonplaceholder.typicode.com/users/${post.userId}`
+  );
+  const user = await userResponse.json();
+  console.log(user);
+
   //erschaffe ein neues element vom Typ <div>
   const element = document.createElement("div");
+  element.classList = "post";
   //schreibe html-code in das div.element
   element.innerHTML = `
+      <div class="post-content">
        <h3>${post.title}</h3>
        <p>${post.body}</p>
+       </div>
+      <div class="user-profile">
+        <img src="https://robohash.org/${user.username}" width="150">
+        <p>${user.username}</p>
+      </div>
        `;
   //hänge das neue element unten am body an
-  document.querySelector("body").appendChild(element);
+  document.querySelector(".container").appendChild(element);
 }
