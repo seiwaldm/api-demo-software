@@ -9,19 +9,13 @@
   border-radius: 5px;
   padding: 0 20px;
   margin: 20px;
-}
-
-.post:nth-child(odd) {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .post:nth-child(even) {
-  display: flex;
   flex-direction: row-reverse;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .post img {
