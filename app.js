@@ -32,16 +32,22 @@ function getRandomPost() {
 }
 
 async function getRandomPostAsync() {
+  //Zufallszahl:
   const postNumber = Math.ceil(Math.random() * 100);
+
+  //hole den Post (im JSON-Format):
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${postNumber}`
   );
+  //wandle das JSON-Format um in ein Javascript-Objekt im Speicher:
   const post = await response.json();
   console.log(post);
 
+  //hole den zum Post gehörenden User über die ID (JSON-Format):
   const userResponse = await fetch(
     `https://jsonplaceholder.typicode.com/users/${post.userId}`
   );
+  //wandle JSON-Format um in ein Objekt:
   const user = await userResponse.json();
   console.log(user);
 
@@ -59,6 +65,6 @@ async function getRandomPostAsync() {
         <p>${user.username}</p>
       </div>
        `;
-  //hänge das neue element unten am body an
+  //hänge das neue element unten am container an
   document.querySelector(".container").appendChild(element);
 }
