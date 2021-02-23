@@ -39,6 +39,7 @@ async function getRandomPostAsync() {
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${postNumber}`
   );
+  console.log(response);
   //wandle das JSON-Format um in ein Javascript-Objekt im Speicher:
   const post = await response.json();
   console.log(post);
@@ -47,6 +48,7 @@ async function getRandomPostAsync() {
   const userResponse = await fetch(
     `https://jsonplaceholder.typicode.com/users/${post.userId}`
   );
+  console.log(userResponse);
   //wandle JSON-Format um in ein Objekt:
   const user = await userResponse.json();
   console.log(user);
